@@ -21,6 +21,9 @@
 		DB8BD4E424A0927D00446AFC /* ExampleHighlightableContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD4DF24A0927D00446AFC /* ExampleHighlightableContentView.swift */; };
 		DB8BD4E624A09F7900446AFC /* FatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD4E524A09F7900446AFC /* FatVC.swift */; };
 		DB8BD4E824A09F8900446AFC /* CaloriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD4E724A09F8900446AFC /* CaloriesVC.swift */; };
+		DB8BD4EA24A1BCBC00446AFC /* SetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD4E924A1BCBC00446AFC /* SetVC.swift */; };
+		DB8BD4EC24A1CD5100446AFC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD4EB24A1CD5100446AFC /* Extensions.swift */; };
+		DB8BD4EE24A1D54100446AFC /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD4ED24A1D54100446AFC /* CustomPickerView.swift */; };
 		F143B686B30FC29F77A22631 /* Pods_BodyRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9176B93B6FF4FAB94FE51F58 /* Pods_BodyRecord.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,9 @@
 		DB8BD4DF24A0927D00446AFC /* ExampleHighlightableContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleHighlightableContentView.swift; sourceTree = "<group>"; };
 		DB8BD4E524A09F7900446AFC /* FatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatVC.swift; sourceTree = "<group>"; };
 		DB8BD4E724A09F8900446AFC /* CaloriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesVC.swift; sourceTree = "<group>"; };
+		DB8BD4E924A1BCBC00446AFC /* SetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetVC.swift; sourceTree = "<group>"; };
+		DB8BD4EB24A1CD5100446AFC /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DB8BD4ED24A1D54100446AFC /* CustomPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,14 +105,17 @@
 				DB8BD4C324A08F0600446AFC /* AppDelegate.swift */,
 				DB8BD4D724A0911500446AFC /* TabbarVC.swift */,
 				DB8BD4C724A08F0600446AFC /* MainVC.swift */,
-				DB8BD4D924A091A500446AFC /* MoreVC.swift */,
 				DB8BD4E524A09F7900446AFC /* FatVC.swift */,
 				DB8BD4E724A09F8900446AFC /* CaloriesVC.swift */,
+				DB8BD4D924A091A500446AFC /* MoreVC.swift */,
+				DB8BD4E924A1BCBC00446AFC /* SetVC.swift */,
 				DB8BD4DB24A0927D00446AFC /* ExampleBackgroundContentView.swift */,
 				DB8BD4DD24A0927D00446AFC /* ExampleBasicContentView.swift */,
 				DB8BD4DC24A0927D00446AFC /* ExampleBouncesContentView.swift */,
 				DB8BD4DF24A0927D00446AFC /* ExampleHighlightableContentView.swift */,
 				DB8BD4DE24A0927D00446AFC /* ExampleIrregularityContentView.swift */,
+				DB8BD4EB24A1CD5100446AFC /* Extensions.swift */,
+				DB8BD4ED24A1D54100446AFC /* CustomPickerView.swift */,
 				DB8BD4C924A08F0600446AFC /* Main.storyboard */,
 				DB8BD4CC24A08F0600446AFC /* Assets.xcassets */,
 				DB8BD4CE24A08F0600446AFC /* LaunchScreen.storyboard */,
@@ -233,10 +242,13 @@
 				DB8BD4E224A0927D00446AFC /* ExampleBasicContentView.swift in Sources */,
 				DB8BD4DA24A091A500446AFC /* MoreVC.swift in Sources */,
 				DB8BD4E624A09F7900446AFC /* FatVC.swift in Sources */,
+				DB8BD4EE24A1D54100446AFC /* CustomPickerView.swift in Sources */,
+				DB8BD4EA24A1BCBC00446AFC /* SetVC.swift in Sources */,
 				DB8BD4E424A0927D00446AFC /* ExampleHighlightableContentView.swift in Sources */,
 				DB8BD4E824A09F8900446AFC /* CaloriesVC.swift in Sources */,
 				DB8BD4E124A0927D00446AFC /* ExampleBouncesContentView.swift in Sources */,
 				DB8BD4E024A0927D00446AFC /* ExampleBackgroundContentView.swift in Sources */,
+				DB8BD4EC24A1CD5100446AFC /* Extensions.swift in Sources */,
 				DB8BD4E324A0927D00446AFC /* ExampleIrregularityContentView.swift in Sources */,
 				DB8BD4C824A08F0600446AFC /* MainVC.swift in Sources */,
 				DB8BD4C424A08F0600446AFC /* AppDelegate.swift in Sources */,

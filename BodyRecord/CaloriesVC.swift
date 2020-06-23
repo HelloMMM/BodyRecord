@@ -10,21 +10,40 @@ import UIKit
 
 class CaloriesVC: UIViewController {
 
+    @IBOutlet weak var age: UILabel!
+    @IBOutlet weak var gender: UILabel!
+    @IBOutlet weak var bodyHeight: UILabel!
+    @IBOutlet weak var bodyWeight: UILabel!
+    @IBOutlet weak var topView: UIView!
+    var setData: Dictionary<String, Any> = [:] {
+        didSet {
+            
+            age.text = "\(setData["age"] ?? 0) Y"
+            bodyHeight.text = "\(setData["bodyHight"] ?? 0) cm"
+            bodyWeight.text = "\(setData["bodyWidth"] ?? 0) kg"
+            iGender = setData["gander"] as! Int
+        }
+    }
+    var iGender = 0 {
+        didSet {
+            if iGender == 0 {
+                gender.text = "女♀"
+            } else {
+                gender.text = "男♀"
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        
+        bodyHeight.layer.addBorder(edge: .right, color: .gray, thickness: 1)
+        bodyHeight.layer.addBorder(edge: .left, color: .gray, thickness: 1)
+        gender.layer.addBorder(edge: .left, color: .gray, thickness: 1)
     }
-    */
-
 }

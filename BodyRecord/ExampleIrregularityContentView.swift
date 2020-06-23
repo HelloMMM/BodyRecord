@@ -67,16 +67,16 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
     }
     
     public override func selectAnimation(animated: Bool, completion: (() -> ())?) {
-        let view = UIView.init(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 2.0, height: 2.0)))
-        view.layer.cornerRadius = 1.0
-        view.layer.opacity = 0.5
-        view.backgroundColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
-        self.addSubview(view)
-        playMaskAnimation(animateView: view, target: self.imageView, completion: {
-            [weak view] in
-            view?.removeFromSuperview()
-            completion?()
-        })
+//        let view = UIView.init(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 2.0, height: 2.0)))
+//        view.layer.cornerRadius = 1.0
+//        view.layer.opacity = 0.5
+//        view.backgroundColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
+//        self.addSubview(view)
+//        playMaskAnimation(animateView: view, target: self.imageView, completion: {
+//            [weak view] in
+//            view?.removeFromSuperview()
+//            completion?()
+//        })
     }
     
     public override func reselectAnimation(animated: Bool, completion: (() -> ())?) {

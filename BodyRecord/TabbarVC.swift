@@ -9,6 +9,7 @@
 import UIKit
 import ESTabBarController_swift
 import GoogleMobileAds
+import Hero
 
 class TabbarVC: ESTabBarController {
 
@@ -18,6 +19,14 @@ class TabbarVC: ESTabBarController {
     var moreVC: MoreVC!
     var fatVC: FatVC!
     var caloriesVC: CaloriesVC!
+    var setData: Dictionary<String, Any> = [:] {
+        didSet {
+            
+            mainVC.setData = setData
+            fatVC.setData = setData
+            caloriesVC.setData = setData
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +41,7 @@ class TabbarVC: ESTabBarController {
         mainVC = main
         fatVC = fat
         addVC = UIViewController()
+        addVC.hero.isEnabled = true
         caloriesVC = calories
         moreVC = more
         
@@ -50,13 +60,28 @@ class TabbarVC: ESTabBarController {
         didHijackHandler = {
             [weak self] tabbarController, viewController, index in
             
-//            self!.v1.addClick()
+            self!.addClick()
         }
+        
+        if UserDefaults.standard.object(forKey: "setData") != nil {
+            let setData = UserDefaults.standard.object(forKey: "setData") as! Dictionary<String, Any>
+            self.setData = setData
+        }
+    }
+    
+    func addClick() {
+        
+        let setVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetVC") as! SetVC
+        setVC.delegate = self
+        present(setVC, animated: true, completion: nil)
     }
     
     func changeStyle() {
         
         let exampleIrregularityContentView = ExampleIrregularityContentView()
+        exampleIrregularityContentView.imageView.hero.isEnabled = true
+        exampleIrregularityContentView.imageView.hero.isEnabledForSubviews = true
+        exampleIrregularityContentView.imageView.hero.id = "ContentView"
         let basicContentView1 = ExampleIrregularityBasicContentView()
         basicContentView1.backdropColor = .clear
         basicContentView1.highlightBackdropColor = .clear
@@ -73,9 +98,15 @@ class TabbarVC: ESTabBarController {
         tabBar.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
         mainVC.view.backgroundColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
         mainVC.topView.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
-        moreVC.view.backgroundColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+        
         fatVC.view.backgroundColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+        fatVC.topView.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
+            
         caloriesVC.view.backgroundColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+        caloriesVC.topView.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
+        
+        moreVC.view.backgroundColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+        moreVC.topView.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
         
         mainVC.tabBarItem = ESTabBarItem(basicContentView1, title: "BMI", image: UIImage(named: "bmi"), selectedImage: UIImage(named: "bmi_1"))
         fatVC.tabBarItem = ESTabBarItem(basicContentView2, title: "體脂肪", image: UIImage(named: "fat"), selectedImage: UIImage(named: "fat"))
@@ -105,6 +136,15 @@ class TabbarVC: ESTabBarController {
         bannerView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         
         view.bringSubviewToFront(tabBar)
+    }
+}
+
+extension TabbarVC: SetVCDelegate {
+    
+    func setData(_ data: Dictionary<String, Any>) {
+        
+        setData = data
+        UserDefaults.standard.set(data, forKey: "setData")
     }
 }
 
