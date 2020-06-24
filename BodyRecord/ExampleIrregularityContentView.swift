@@ -15,9 +15,9 @@ class ExampleIrregularityBasicContentView: ExampleBouncesContentView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+        textColor = UIColor.init(white: 0.0, alpha: 1.0)
         highlightTextColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
-        iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+        iconColor = UIColor.init(white: 0.0, alpha: 1.0)
         highlightIconColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
         backdropColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
         highlightBackdropColor = UIColor.init(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
@@ -43,9 +43,9 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
         self.imageView.transform = transform
         self.superview?.bringSubviewToFront(self)
 
-        textColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+        textColor = UIColor.init(white: 1.0, alpha: 1.0)
         highlightTextColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
-        iconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
+        iconColor = UIColor.init(white: 1.0, alpha: 1.0)
         highlightIconColor = UIColor.init(white: 255.0 / 255.0, alpha: 1.0)
         backdropColor = .clear
         highlightBackdropColor = .clear

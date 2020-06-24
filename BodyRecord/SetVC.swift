@@ -99,24 +99,11 @@ class SetVC: UIViewController {
         }
         
         let gander = selectGander
-        var sHight = ""
-        var sWidth = ""
-        
-        if hight.truncatingRemainder(dividingBy: 1) > 0 {
-            sHight = "\(hight)"
-        } else {
-            sHight = "\(Int(hight))"
-        }
-        if width.truncatingRemainder(dividingBy: 1) > 0 {
-            sWidth = "\(width)"
-        } else {
-            sWidth = "\(Int(width))"
-        }
         
         delegate?.setData(["age": age,
                            "gander": gander,
-                           "bodyHight": sHight,
-                           "bodyWidth": sWidth])
+                           "bodyHight": hight,
+                           "bodyWidth": width])
         dismiss(animated: true, completion: nil)
     }
     
