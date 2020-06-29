@@ -34,6 +34,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bmi: UILabel!
     @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var statement: UILabel!
     
     var setData: Dictionary<String, Any> = [:] {
         didSet {
@@ -81,6 +82,8 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         
         textAry = [lightText, normalText, exceedText, mildoText, mediumText, severeText]
+
+        statement.text = "以上資料僅供參考,\n引用資料來源: 維基百科."
     }
     
     override func viewDidAppear(_ animated: Bool) {

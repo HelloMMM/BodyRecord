@@ -11,9 +11,12 @@ import ESTabBarController_swift
 import GoogleMobileAds
 import Hero
 
+var tabbarVC: ESTabBarController!
+
 class TabbarVC: ESTabBarController {
 
     var bannerView: GADBannerView!
+    var interstitial: GADInterstitial!
     var mainVC: MainVC!
     var addVC: UIViewController!
     var moreVC: MoreVC!
@@ -31,12 +34,18 @@ class TabbarVC: ESTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addBannerViewToView()
+        interstitial = createAndLoadInterstitial()
+        if !isRemoveAD {
+            addBannerViewToView()
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(removeAD), name: NSNotification.Name("RemoveAD") , object: nil)
         
         let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as! MainVC
-        let more = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoreVC") as! MoreVC
         let fat = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FatVC") as! FatVC
         let calories = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CaloriesVC") as! CaloriesVC
+        let more = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoreVC") as! MoreVC
+        more.delegate = self
         
         mainVC = main
         fatVC = fat
@@ -45,7 +54,7 @@ class TabbarVC: ESTabBarController {
         caloriesVC = calories
         moreVC = more
         
-        changeStyle()
+        changeStyle(Style(rawValue: appStyle)!)
         
         viewControllers = [mainVC, fatVC, addVC, caloriesVC, moreVC]
         
@@ -67,6 +76,44 @@ class TabbarVC: ESTabBarController {
             let setData = UserDefaults.standard.object(forKey: "setData") as! Dictionary<String, Any>
             self.setData = setData
         }
+        
+        tabbarVC = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.object(forKey: "firstStart") == nil {
+            
+            let testVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TestVC") as! TestVC
+            testVC.alpha = 0.7
+            testVC.testVCDelegate = self
+            
+            present(testVC, animated: true, completion: nil)
+            UserDefaults.standard.set(false, forKey: "firstStart")
+        }
+        
+    }
+    
+    @objc func removeAD(notification: NSNotification) {
+            
+        isRemoveAD = true
+        
+        if bannerView != nil {
+            bannerView.removeFromSuperview()
+        }
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        
+        #if DEBUG
+            interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        #else
+            interstitial = GADInterstitial(adUnitID: "ca-app-pub-1223027370530841/9186788056")
+        #endif
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        
+        return interstitial
     }
     
     func addClick() {
@@ -74,45 +121,6 @@ class TabbarVC: ESTabBarController {
         let setVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetVC") as! SetVC
         setVC.delegate = self
         present(setVC, animated: true, completion: nil)
-    }
-    
-    func changeStyle() {
-        
-        let exampleIrregularityContentView = ExampleIrregularityContentView()
-        exampleIrregularityContentView.imageView.hero.isEnabled = true
-        exampleIrregularityContentView.imageView.hero.isEnabledForSubviews = true
-        exampleIrregularityContentView.imageView.hero.id = "ContentView"
-        let basicContentView1 = ExampleIrregularityBasicContentView()
-        basicContentView1.backdropColor = .clear
-        basicContentView1.highlightBackdropColor = .clear
-        let basicContentView2 = ExampleIrregularityBasicContentView()
-        basicContentView2.backdropColor = .clear
-        basicContentView2.highlightBackdropColor = .clear
-        let basicContentView3 = ExampleIrregularityBasicContentView()
-        basicContentView3.backdropColor = .clear
-        basicContentView3.highlightBackdropColor = .clear
-        let basicContentView4 = ExampleIrregularityBasicContentView()
-        basicContentView4.backdropColor = .clear
-        basicContentView4.highlightBackdropColor = .clear
-        
-        tabBar.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
-        mainVC.view.backgroundColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
-        mainVC.topView.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
-        
-        fatVC.view.backgroundColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
-        fatVC.topView.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
-            
-        caloriesVC.view.backgroundColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
-        caloriesVC.topView.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
-        
-        moreVC.view.backgroundColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
-        moreVC.topView.backgroundColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
-        
-        mainVC.tabBarItem = ESTabBarItem(basicContentView1, title: "BMI", image: UIImage(named: "bmi"), selectedImage: UIImage(named: "bmi_1"))
-        fatVC.tabBarItem = ESTabBarItem(basicContentView2, title: "體脂肪", image: UIImage(named: "fat"), selectedImage: UIImage(named: "fat"))
-        addVC.tabBarItem = ESTabBarItem(exampleIrregularityContentView, title: nil, image: UIImage(named: "add"), selectedImage: UIImage(named: "add"))
-        caloriesVC.tabBarItem = ESTabBarItem(basicContentView3, title: "代謝率", image: UIImage(named: "calories"), selectedImage: UIImage(named: "calories"))
-        moreVC.tabBarItem = ESTabBarItem(basicContentView4, title: "更多", image: UIImage(named: "more"), selectedImage: UIImage(named: "more"))
     }
     
     func addBannerViewToView() {
@@ -139,12 +147,109 @@ class TabbarVC: ESTabBarController {
     }
 }
 
+extension TabbarVC: MoreVCDelegate {
+ 
+    func changeStyle(_ style: Style) {
+        
+        let exampleIrregularityContentView = ExampleIrregularityContentView()
+        exampleIrregularityContentView.imageView.hero.isEnabled = true
+        exampleIrregularityContentView.imageView.hero.isEnabledForSubviews = true
+        exampleIrregularityContentView.imageView.hero.id = "ContentView"
+        let basicContentView1 = ExampleIrregularityBasicContentView()
+        basicContentView1.backdropColor = .clear
+        basicContentView1.highlightBackdropColor = .clear
+        let basicContentView2 = ExampleIrregularityBasicContentView()
+        basicContentView2.backdropColor = .clear
+        basicContentView2.highlightBackdropColor = .clear
+        let basicContentView3 = ExampleIrregularityBasicContentView()
+        basicContentView3.backdropColor = .clear
+        basicContentView3.highlightBackdropColor = .clear
+        let basicContentView4 = ExampleIrregularityBasicContentView()
+        basicContentView4.backdropColor = .clear
+        basicContentView4.highlightBackdropColor = .clear
+        
+        var tabBarColor: UIColor!
+        var bgColor: UIColor!
+        var basicColor: UIColor!
+        if style == .blue {
+            
+            tabBarColor = UIColor(red: 10/255.0, green: 66/255.0, blue: 91/255.0, alpha: 1.0)
+            bgColor = UIColor(red: 165.0/255.0, green: 222.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+            basicColor = UIColor.init(red: 23/255.0, green: 149/255.0, blue: 158/255.0, alpha: 1.0)
+        } else if style == .yellow {
+            
+            tabBarColor = UIColor(red: 217.0/255.0, green: 127.0/255.0, blue: 71.0/255.0, alpha: 1.0)
+            bgColor = UIColor(red: 248.0/255.0, green: 223.0/255.0, blue: 152.0/255.0, alpha: 1.0)
+            basicColor = UIColor(red: 246.0/255.0, green: 189.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+            
+        } else {
+            tabBarColor = UIColor(red: 243.0/255.0, green: 163.0/255.0, blue: 178.0/255.0, alpha: 1.0)
+            bgColor = UIColor(red: 245.0/255.0, green: 202.0/255.0, blue: 195.0/255.0, alpha: 1.0)
+            basicColor = UIColor(red: 227.0/255.0, green: 141.0/255.0, blue: 131.0/255.0, alpha: 1.0)
+        }
+        
+        tabBar.backgroundColor = tabBarColor
+        
+        mainVC.view.backgroundColor = bgColor
+        mainVC.topView.backgroundColor = tabBarColor
+        
+        fatVC.view.backgroundColor = bgColor
+        fatVC.topView.backgroundColor = tabBarColor
+            
+        caloriesVC.view.backgroundColor = bgColor
+        caloriesVC.topView.backgroundColor = tabBarColor
+        
+        moreVC.view.backgroundColor = bgColor
+        moreVC.topView.backgroundColor = tabBarColor
+        
+        exampleIrregularityContentView.imageView.backgroundColor = basicColor
+        basicContentView1.highlightTextColor = basicColor
+        basicContentView1.highlightIconColor = basicColor
+        basicContentView2.highlightTextColor = basicColor
+        basicContentView2.highlightIconColor = basicColor
+        basicContentView3.highlightTextColor = basicColor
+        basicContentView3.highlightIconColor = basicColor
+        basicContentView4.highlightTextColor = basicColor
+        basicContentView4.highlightIconColor = basicColor
+        
+        mainVC.tabBarItem = ESTabBarItem(basicContentView1, title: "BMI", image: UIImage(named: "bmi"), selectedImage: UIImage(named: "bmi_1"))
+        fatVC.tabBarItem = ESTabBarItem(basicContentView2, title: "體脂肪", image: UIImage(named: "fat"), selectedImage: UIImage(named: "fat"))
+        addVC.tabBarItem = ESTabBarItem(exampleIrregularityContentView, title: nil, image: UIImage(named: "add"), selectedImage: UIImage(named: "add"))
+        caloriesVC.tabBarItem = ESTabBarItem(basicContentView3, title: "代謝率", image: UIImage(named: "calories"), selectedImage: UIImage(named: "calories"))
+        moreVC.tabBarItem = ESTabBarItem(basicContentView4, title: "更多", image: UIImage(named: "more"), selectedImage: UIImage(named: "more"))
+    }
+}
+
 extension TabbarVC: SetVCDelegate {
     
     func setData(_ data: Dictionary<String, Any>) {
         
         setData = data
         UserDefaults.standard.set(data, forKey: "setData")
+        
+        if !isRemoveAD {
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+            } else {
+                interstitial = createAndLoadInterstitial()
+            }
+        }
+    }
+}
+
+extension TabbarVC: GADInterstitialDelegate {
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+
+        interstitial = createAndLoadInterstitial()
+    }
+}
+
+extension TabbarVC: TestVCDelegate {
+    
+    func enterMain() {
+        
+        addClick()
     }
 }
 

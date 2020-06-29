@@ -19,6 +19,7 @@ open class CustomPickerView: UIView {
         didSet {
             currentSelect = pickData[lastSelect]
             pickView.selectRow(lastSelect, inComponent: 0, animated: false)
+            selectNumber = lastSelect
         }
     }
     

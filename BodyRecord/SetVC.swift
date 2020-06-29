@@ -100,11 +100,13 @@ class SetVC: UIViewController {
         
         let gander = selectGander
         
-        delegate?.setData(["age": age,
-                           "gander": gander,
-                           "bodyHight": hight,
-                           "bodyWidth": width])
-        dismiss(animated: true, completion: nil)
+        
+        dismiss(animated: true) {
+            self.delegate?.setData(["age": age,
+                               "gander": gander,
+                               "bodyHight": hight,
+                               "bodyWidth": width])
+        }
     }
     
     @IBAction func cancelClick(_ sender: Any) {

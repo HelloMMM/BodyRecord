@@ -31,6 +31,9 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
   - pop (1.0.12)
 
 DEPENDENCIES:
@@ -38,6 +41,7 @@ DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - Hero
   - IQKeyboardManagerSwift
+  - NVActivityIndicatorView
   - pop (~> 1.0)
 
 SPEC REPOS:
@@ -49,6 +53,7 @@ SPEC REPOS:
     - Hero
     - IQKeyboardManagerSwift
     - nanopb
+    - NVActivityIndicatorView
     - pop
 
 SPEC CHECKSUMS:
@@ -59,8 +64,9 @@ SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
-PODFILE CHECKSUM: d848c781150181ec5178d2abb9d07870a3200e90
+PODFILE CHECKSUM: 72ccdc718b093a7f55e2ee800b2e1f486f3200aa
 
 COCOAPODS: 1.8.3

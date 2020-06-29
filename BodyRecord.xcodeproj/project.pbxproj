@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB7B5F2A24A334F900BDFB7A /* MoreVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2924A334F900BDFB7A /* MoreVCCell.swift */; };
+		DB7B5F2C24A33CD400BDFB7A /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2B24A33CD300BDFB7A /* IAPManager.swift */; };
+		DB7B5F2E24A33CF300BDFB7A /* NVLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2D24A33CF300BDFB7A /* NVLoadingView.swift */; };
+		DB7B5F3024A356C700BDFB7A /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2F24A356C700BDFB7A /* TestVC.swift */; };
+		DB7B5F3624A35CEE00BDFB7A /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F3224A35CED00BDFB7A /* SpotlightTransitionController.swift */; };
+		DB7B5F3724A35CEE00BDFB7A /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F3324A35CED00BDFB7A /* SpotlightView.swift */; };
+		DB7B5F3824A35CEE00BDFB7A /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F3424A35CED00BDFB7A /* Spotlight.swift */; };
+		DB7B5F3924A35CEE00BDFB7A /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F3524A35CED00BDFB7A /* SpotlightViewController.swift */; };
 		DB8BD4C424A08F0600446AFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD4C324A08F0600446AFC /* AppDelegate.swift */; };
 		DB8BD4C824A08F0600446AFC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8BD4C724A08F0600446AFC /* MainVC.swift */; };
 		DB8BD4CB24A08F0600446AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB8BD4C924A08F0600446AFC /* Main.storyboard */; };
@@ -31,7 +39,15 @@
 		7648BCF92A4AB27333625A9D /* Pods-BodyRecord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BodyRecord.debug.xcconfig"; path = "Target Support Files/Pods-BodyRecord/Pods-BodyRecord.debug.xcconfig"; sourceTree = "<group>"; };
 		9176B93B6FF4FAB94FE51F58 /* Pods_BodyRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BodyRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA121F3A8EFB576D0346F6E4 /* Pods-BodyRecord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BodyRecord.release.xcconfig"; path = "Target Support Files/Pods-BodyRecord/Pods-BodyRecord.release.xcconfig"; sourceTree = "<group>"; };
-		DB8BD4C024A08F0600446AFC /* BodyRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7B5F2924A334F900BDFB7A /* MoreVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVCCell.swift; sourceTree = "<group>"; };
+		DB7B5F2B24A33CD300BDFB7A /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		DB7B5F2D24A33CF300BDFB7A /* NVLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVLoadingView.swift; sourceTree = "<group>"; };
+		DB7B5F2F24A356C700BDFB7A /* TestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		DB7B5F3224A35CED00BDFB7A /* SpotlightTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightTransitionController.swift; sourceTree = "<group>"; };
+		DB7B5F3324A35CED00BDFB7A /* SpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightView.swift; sourceTree = "<group>"; };
+		DB7B5F3424A35CED00BDFB7A /* Spotlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spotlight.swift; sourceTree = "<group>"; };
+		DB7B5F3524A35CED00BDFB7A /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
+		DB8BD4C024A08F0600446AFC /* 身體資訊.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "身體資訊.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB8BD4C324A08F0600446AFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB8BD4C724A08F0600446AFC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		DB8BD4CA24A08F0600446AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +97,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DB7B5F3124A35CED00BDFB7A /* Gecco */ = {
+			isa = PBXGroup;
+			children = (
+				DB7B5F3224A35CED00BDFB7A /* SpotlightTransitionController.swift */,
+				DB7B5F3324A35CED00BDFB7A /* SpotlightView.swift */,
+				DB7B5F3424A35CED00BDFB7A /* Spotlight.swift */,
+				DB7B5F3524A35CED00BDFB7A /* SpotlightViewController.swift */,
+			);
+			path = Gecco;
+			sourceTree = "<group>";
+		};
 		DB8BD4B724A08F0600446AFC = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +121,7 @@
 		DB8BD4C124A08F0600446AFC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB8BD4C024A08F0600446AFC /* BodyRecord.app */,
+				DB8BD4C024A08F0600446AFC /* 身體資訊.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,7 +135,9 @@
 				DB8BD4E524A09F7900446AFC /* FatVC.swift */,
 				DB8BD4E724A09F8900446AFC /* CaloriesVC.swift */,
 				DB8BD4D924A091A500446AFC /* MoreVC.swift */,
+				DB7B5F2924A334F900BDFB7A /* MoreVCCell.swift */,
 				DB8BD4E924A1BCBC00446AFC /* SetVC.swift */,
+				DB7B5F2F24A356C700BDFB7A /* TestVC.swift */,
 				DB8BD4DB24A0927D00446AFC /* ExampleBackgroundContentView.swift */,
 				DB8BD4DD24A0927D00446AFC /* ExampleBasicContentView.swift */,
 				DB8BD4DC24A0927D00446AFC /* ExampleBouncesContentView.swift */,
@@ -116,8 +145,11 @@
 				DB8BD4DE24A0927D00446AFC /* ExampleIrregularityContentView.swift */,
 				DB8BD4EB24A1CD5100446AFC /* Extensions.swift */,
 				DB8BD4ED24A1D54100446AFC /* CustomPickerView.swift */,
-				DB8BD4C924A08F0600446AFC /* Main.storyboard */,
+				DB7B5F2B24A33CD300BDFB7A /* IAPManager.swift */,
+				DB7B5F2D24A33CF300BDFB7A /* NVLoadingView.swift */,
+				DB7B5F3124A35CED00BDFB7A /* Gecco */,
 				DB8BD4CC24A08F0600446AFC /* Assets.xcassets */,
+				DB8BD4C924A08F0600446AFC /* Main.storyboard */,
 				DB8BD4CE24A08F0600446AFC /* LaunchScreen.storyboard */,
 				DB8BD4D124A08F0600446AFC /* Info.plist */,
 			);
@@ -143,7 +175,7 @@
 			);
 			name = BodyRecord;
 			productName = BodyRecord;
-			productReference = DB8BD4C024A08F0600446AFC /* BodyRecord.app */;
+			productReference = DB8BD4C024A08F0600446AFC /* 身體資訊.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -239,19 +271,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7B5F2C24A33CD400BDFB7A /* IAPManager.swift in Sources */,
 				DB8BD4E224A0927D00446AFC /* ExampleBasicContentView.swift in Sources */,
 				DB8BD4DA24A091A500446AFC /* MoreVC.swift in Sources */,
 				DB8BD4E624A09F7900446AFC /* FatVC.swift in Sources */,
+				DB7B5F2A24A334F900BDFB7A /* MoreVCCell.swift in Sources */,
 				DB8BD4EE24A1D54100446AFC /* CustomPickerView.swift in Sources */,
 				DB8BD4EA24A1BCBC00446AFC /* SetVC.swift in Sources */,
 				DB8BD4E424A0927D00446AFC /* ExampleHighlightableContentView.swift in Sources */,
 				DB8BD4E824A09F8900446AFC /* CaloriesVC.swift in Sources */,
 				DB8BD4E124A0927D00446AFC /* ExampleBouncesContentView.swift in Sources */,
 				DB8BD4E024A0927D00446AFC /* ExampleBackgroundContentView.swift in Sources */,
+				DB7B5F3724A35CEE00BDFB7A /* SpotlightView.swift in Sources */,
+				DB7B5F3824A35CEE00BDFB7A /* Spotlight.swift in Sources */,
+				DB7B5F3624A35CEE00BDFB7A /* SpotlightTransitionController.swift in Sources */,
 				DB8BD4EC24A1CD5100446AFC /* Extensions.swift in Sources */,
+				DB7B5F2E24A33CF300BDFB7A /* NVLoadingView.swift in Sources */,
 				DB8BD4E324A0927D00446AFC /* ExampleIrregularityContentView.swift in Sources */,
 				DB8BD4C824A08F0600446AFC /* MainVC.swift in Sources */,
 				DB8BD4C424A08F0600446AFC /* AppDelegate.swift in Sources */,
+				DB7B5F3924A35CEE00BDFB7A /* SpotlightViewController.swift in Sources */,
+				DB7B5F3024A356C700BDFB7A /* TestVC.swift in Sources */,
 				DB8BD4D824A0911500446AFC /* TabbarVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,16 +437,19 @@
 			baseConfigurationReference = 7648BCF92A4AB27333625A9D /* Pods-BodyRecord.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PUQD9N6U85;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 38AMPUQ98F;
 				INFOPLIST_FILE = BodyRecord/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = uuu.com.BodyRecord;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uuu.HelloM.BodyInformation;
+				PRODUCT_NAME = "身體資訊";
+				PROVISIONING_PROFILE_SPECIFIER = BI_dev_20200624;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -417,16 +460,19 @@
 			baseConfigurationReference = BA121F3A8EFB576D0346F6E4 /* Pods-BodyRecord.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PUQD9N6U85;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 38AMPUQ98F;
 				INFOPLIST_FILE = BodyRecord/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = uuu.com.BodyRecord;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = uuu.HelloM.BodyInformation;
+				PRODUCT_NAME = "身體資訊";
+				PROVISIONING_PROFILE_SPECIFIER = BI_dev_20200624;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

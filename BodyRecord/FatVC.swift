@@ -35,7 +35,7 @@ class FatVC: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bodyFat: UILabel!
     @IBOutlet weak var type: UILabel!
-    
+    @IBOutlet weak var statement: UILabel!
     var bodyType: BodyType!
     
     var setData: Dictionary<String, Any> = [:] {
@@ -84,6 +84,8 @@ class FatVC: UIViewController {
         super.viewDidLoad()
 
         textAry = [lowText, standardText, averageText, hightText]
+        
+        statement.text = "以上資料僅供參考,\n引用資料來源: 維基百科."
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -108,13 +110,13 @@ class FatVC: UIViewController {
                 lowValue.text = "< 20 %"
                 standardValue.text = "20 ~ 25.9 %"
                 averageValue.text = "26 ~ 32 %"
-                hightValue.text = "≧ 32"
+                hightValue.text = "≧ 32 %"
                 bodyType = .femaleLow
             } else {
                 lowValue.text = "< 22 %"
                 standardValue.text = "22 ~ 27.9 %"
                 averageValue.text = "28 ~ 34 %"
-                hightValue.text = "≧ 34"
+                hightValue.text = "≧ 34 %"
                 bodyType = .femaleHight
             }
         } else {
@@ -122,7 +124,7 @@ class FatVC: UIViewController {
                 lowValue.text = "< 10 %"
                 standardValue.text = "10 ~ 19.9 %"
                 averageValue.text = "20 ~ 24.9 %"
-                hightValue.text = "≧ 25"
+                hightValue.text = "≧ 25 %"
                 bodyType = .maleLow
             } else {
                 lowValue.text = "< 13 %"
