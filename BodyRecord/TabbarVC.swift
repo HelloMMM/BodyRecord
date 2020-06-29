@@ -13,6 +13,10 @@ import Hero
 
 var tabbarVC: ESTabBarController!
 
+protocol TabbarVCDelegate {
+    func showMenu()
+}
+
 class TabbarVC: ESTabBarController {
 
     var bannerView: GADBannerView!
@@ -42,8 +46,14 @@ class TabbarVC: ESTabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(removeAD), name: NSNotification.Name("RemoveAD") , object: nil)
         
         let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as! MainVC
+        main.dalegate = self
+        
         let fat = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FatVC") as! FatVC
+        fat.dalegate = self
+        
         let calories = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CaloriesVC") as! CaloriesVC
+        calories.dalegate = self
+        
         let more = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoreVC") as! MoreVC
         more.delegate = self
         
@@ -144,6 +154,23 @@ class TabbarVC: ESTabBarController {
         bannerView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         
         view.bringSubviewToFront(tabBar)
+    }
+}
+
+extension TabbarVC: TabbarVCDelegate, MySlideMeunDelegate {
+    
+    func showMenu() {
+        
+        let mySlideMeunVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MySlideMeunVC") as! MySlideMeunVC
+        mySlideMeunVC.delegate = self
+        present(mySlideMeunVC, animated: true, completion: nil)
+    }
+    
+    func itemClick() {
+        
+        let dataChartVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DataChartVC") as! DataChartVC
+        
+        present(dataChartVC, animated: false, completion: nil)
     }
 }
 

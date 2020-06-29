@@ -10,6 +10,8 @@ import UIKit
 
 class CaloriesVC: UIViewController {
 
+    var dalegate: TabbarVCDelegate?
+    
     @IBOutlet weak var age: UILabel!
     @IBOutlet weak var gender: UILabel!
     @IBOutlet weak var bodyHeight: UILabel!
@@ -20,7 +22,6 @@ class CaloriesVC: UIViewController {
     @IBOutlet weak var tedd: UILabel!
     @IBOutlet weak var loseWeight: UILabel!
     @IBOutlet weak var statement: UILabel!
-    
     
     var typeAry = ["靜止", "輕度", "中度", "重度"]
     var selectType = 0
@@ -125,4 +126,8 @@ class CaloriesVC: UIViewController {
         customPickerView.lastSelect = selectType
     }
     
+    @IBAction func menuClick(_ sender: Any) {
+        
+        dalegate?.showMenu()
+    }
 }

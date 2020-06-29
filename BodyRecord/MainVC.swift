@@ -17,6 +17,7 @@ let severeBesityColor = UIColor(red: 1.0, green: 38.0/255.0, blue: 0.0, alpha: 1
 
 class MainVC: UIViewController {
 
+    var dalegate: TabbarVCDelegate?
     
     @IBOutlet weak var lightText: UILabel!
     @IBOutlet weak var normalText: UILabel!
@@ -152,6 +153,11 @@ class MainVC: UIViewController {
                 objc.textColor = UIColor(red: 40.0/255.0, green: 42.0/255.0, blue: 48.0/255.0, alpha: 0.79)
             }
         }
+    }
+    
+    @IBAction func menuClick(_ sender: Any) {
+        
+        dalegate?.showMenu()
     }
 }
 
