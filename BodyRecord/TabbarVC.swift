@@ -12,6 +12,8 @@ import GoogleMobileAds
 import Hero
 
 var tabbarVC: ESTabBarController!
+var tabBarColor: UIColor!
+
 
 protocol TabbarVCDelegate {
     func showMenu()
@@ -37,7 +39,7 @@ class TabbarVC: ESTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         interstitial = createAndLoadInterstitial()
         if !isRemoveAD {
             addBannerViewToView()
@@ -131,6 +133,11 @@ class TabbarVC: ESTabBarController {
         let setVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetVC") as! SetVC
         setVC.delegate = self
         present(setVC, animated: true, completion: nil)
+        
+        if UserDefaults.standard.object(forKey: "setData") != nil {
+            let setData = UserDefaults.standard.object(forKey: "setData") as! Dictionary<String, Any>
+            setVC.setData = setData
+        }
     }
     
     func addBannerViewToView() {
@@ -168,9 +175,9 @@ extension TabbarVC: TabbarVCDelegate, MySlideMeunDelegate {
     
     func itemClick() {
         
-        let dataChartVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DataChartVC") as! DataChartVC
+        let historicalRecordVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoricalRecordVC") as! HistoricalRecordVC
         
-        present(dataChartVC, animated: false, completion: nil)
+        present(historicalRecordVC, animated: false, completion: nil)
     }
 }
 
@@ -195,7 +202,6 @@ extension TabbarVC: MoreVCDelegate {
         basicContentView4.backdropColor = .clear
         basicContentView4.highlightBackdropColor = .clear
         
-        var tabBarColor: UIColor!
         var bgColor: UIColor!
         var basicColor: UIColor!
         if style == .blue {
@@ -260,6 +266,13 @@ extension TabbarVC: SetVCDelegate {
             } else {
                 interstitial = createAndLoadInterstitial()
             }
+        }
+        
+        let _ = coreDataConnect.insert(coreDataName, attributeInfo: data)
+        let selectResult = coreDataConnect.retrieve(coreDataName, predicate: nil, sort: [["date": false]], limit: nil)
+        
+        if let results = selectResult {
+            userData = results
         }
     }
 }

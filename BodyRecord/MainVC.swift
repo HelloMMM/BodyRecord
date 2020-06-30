@@ -40,9 +40,9 @@ class MainVC: UIViewController {
     var setData: Dictionary<String, Any> = [:] {
         didSet {
             iAge = setData["age"] as! Int
-            iGender = setData["gander"] as! Int
-            iBodyHeight = setData["bodyHight"] as! Double
-            iBodyWeight = setData["bodyWidth"] as! Double
+            iGender = setData["gender"] as! Int
+            iBodyHeight = setData["bodyHeight"] as! Double
+            iBodyWeight = setData["bodyWeight"] as! Double
             upDate()
         }
     }
@@ -85,9 +85,12 @@ class MainVC: UIViewController {
         textAry = [lightText, normalText, exceedText, mildoText, mediumText, severeText]
 
         statement.text = "以上資料僅供參考,\n引用資料來源: 維基百科."
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         bodyHeight.layer.addBorder(edge: .right, color: .gray, thickness: 1)
         bodyHeight.layer.addBorder(edge: .left, color: .gray, thickness: 1)
         gender.layer.addBorder(edge: .left, color: .gray, thickness: 1)

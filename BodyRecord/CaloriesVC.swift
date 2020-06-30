@@ -29,9 +29,9 @@ class CaloriesVC: UIViewController {
      var setData: Dictionary<String, Any> = [:] {
            didSet {
                iAge = setData["age"] as! Int
-               iGender = setData["gander"] as! Int
-               iBodyHeight = setData["bodyHight"] as! Double
-               iBodyWeight = setData["bodyWidth"] as! Double
+               iGender = setData["gender"] as! Int
+               iBodyHeight = setData["bodyHeight"] as! Double
+               iBodyWeight = setData["bodyWeight"] as! Double
                upDate()
            }
        }

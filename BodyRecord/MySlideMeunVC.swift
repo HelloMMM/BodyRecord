@@ -31,17 +31,15 @@ extension MySlideMeunVC: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch section {
         case 0:
-            return 1
-        case 1:
             return 2
-        case 2:
+        case 1:
             return 2
         default:
             return 0
@@ -66,10 +64,8 @@ extension MySlideMeunVC: UITableViewDataSource, UITableViewDelegate {
         
         switch section {
         case 0:
-            label.text = "首頁"
+            label.text = "紀錄"
         case 1:
-            label.text = "圖表"
-        case 2:
             label.text = "其他"
         default:
             break
@@ -82,7 +78,17 @@ extension MySlideMeunVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MySlideMeunCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MySlideMeunCell", for: indexPath) as! MySlideMeunCell
+        
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                cell.title.text = "歷史體重"
+                cell.myImageView.image = UIImage(named: "WeightScale")
+            } else if indexPath.row == 1 {
+                cell.title.text = "圖表"
+                cell.myImageView.image = UIImage(named: "chart")
+            }
+        }
         
         return cell
     }

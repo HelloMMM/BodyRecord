@@ -10,6 +10,10 @@
 		DB3EC8B624A9D1800045779C /* MySlideMeunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EC8B524A9D1800045779C /* MySlideMeunVC.swift */; };
 		DB3EC8B824A9D50B0045779C /* MySlideMeunCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EC8B724A9D50B0045779C /* MySlideMeunCell.swift */; };
 		DB3EC8BA24A9E5660045779C /* DataChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EC8B924A9E5660045779C /* DataChartVC.swift */; };
+		DB3EC8BD24A9EAF80045779C /* UserCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DB3EC8BB24A9EAF80045779C /* UserCoreData.xcdatamodeld */; };
+		DB3EC8BF24A9ECDC0045779C /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EC8BE24A9ECDC0045779C /* CoreDataConnect.swift */; };
+		DB5C98EA24AAEA5B00FF262E /* HistoricalRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C98E924AAEA5B00FF262E /* HistoricalRecordVC.swift */; };
+		DB5C98EC24AAEE9600FF262E /* HistoricalRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C98EB24AAEE9600FF262E /* HistoricalRecordCell.swift */; };
 		DB7B5F2A24A334F900BDFB7A /* MoreVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2924A334F900BDFB7A /* MoreVCCell.swift */; };
 		DB7B5F2C24A33CD400BDFB7A /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2B24A33CD300BDFB7A /* IAPManager.swift */; };
 		DB7B5F2E24A33CF300BDFB7A /* NVLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2D24A33CF300BDFB7A /* NVLoadingView.swift */; };
@@ -45,6 +49,10 @@
 		DB3EC8B524A9D1800045779C /* MySlideMeunVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySlideMeunVC.swift; sourceTree = "<group>"; };
 		DB3EC8B724A9D50B0045779C /* MySlideMeunCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySlideMeunCell.swift; sourceTree = "<group>"; };
 		DB3EC8B924A9E5660045779C /* DataChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataChartVC.swift; sourceTree = "<group>"; };
+		DB3EC8BC24A9EAF80045779C /* UserCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserCoreData.xcdatamodel; sourceTree = "<group>"; };
+		DB3EC8BE24A9ECDC0045779C /* CoreDataConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
+		DB5C98E924AAEA5B00FF262E /* HistoricalRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRecordVC.swift; sourceTree = "<group>"; };
+		DB5C98EB24AAEE9600FF262E /* HistoricalRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRecordCell.swift; sourceTree = "<group>"; };
 		DB7B5F2924A334F900BDFB7A /* MoreVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVCCell.swift; sourceTree = "<group>"; };
 		DB7B5F2B24A33CD300BDFB7A /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		DB7B5F2D24A33CF300BDFB7A /* NVLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVLoadingView.swift; sourceTree = "<group>"; };
@@ -103,6 +111,37 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DB5C98E624AAE9F400FF262E /* TabbarStyle */ = {
+			isa = PBXGroup;
+			children = (
+				DB8BD4DB24A0927D00446AFC /* ExampleBackgroundContentView.swift */,
+				DB8BD4DD24A0927D00446AFC /* ExampleBasicContentView.swift */,
+				DB8BD4DC24A0927D00446AFC /* ExampleBouncesContentView.swift */,
+				DB8BD4DF24A0927D00446AFC /* ExampleHighlightableContentView.swift */,
+				DB8BD4DE24A0927D00446AFC /* ExampleIrregularityContentView.swift */,
+			);
+			path = TabbarStyle;
+			sourceTree = "<group>";
+		};
+		DB5C98E724AAEA1000FF262E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DB8BD4EB24A1CD5100446AFC /* Extensions.swift */,
+				DB8BD4ED24A1D54100446AFC /* CustomPickerView.swift */,
+				DB7B5F2B24A33CD300BDFB7A /* IAPManager.swift */,
+				DB7B5F2D24A33CF300BDFB7A /* NVLoadingView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DB5C98E824AAEA3000FF262E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DB3EC8BE24A9ECDC0045779C /* CoreDataConnect.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		DB7B5F3124A35CED00BDFB7A /* Gecco */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,20 +186,17 @@
 				DB3EC8B524A9D1800045779C /* MySlideMeunVC.swift */,
 				DB3EC8B724A9D50B0045779C /* MySlideMeunCell.swift */,
 				DB3EC8B924A9E5660045779C /* DataChartVC.swift */,
-				DB8BD4DB24A0927D00446AFC /* ExampleBackgroundContentView.swift */,
-				DB8BD4DD24A0927D00446AFC /* ExampleBasicContentView.swift */,
-				DB8BD4DC24A0927D00446AFC /* ExampleBouncesContentView.swift */,
-				DB8BD4DF24A0927D00446AFC /* ExampleHighlightableContentView.swift */,
-				DB8BD4DE24A0927D00446AFC /* ExampleIrregularityContentView.swift */,
-				DB8BD4EB24A1CD5100446AFC /* Extensions.swift */,
-				DB8BD4ED24A1D54100446AFC /* CustomPickerView.swift */,
-				DB7B5F2B24A33CD300BDFB7A /* IAPManager.swift */,
-				DB7B5F2D24A33CF300BDFB7A /* NVLoadingView.swift */,
+				DB5C98E924AAEA5B00FF262E /* HistoricalRecordVC.swift */,
+				DB5C98EB24AAEE9600FF262E /* HistoricalRecordCell.swift */,
+				DB5C98E824AAEA3000FF262E /* CoreData */,
+				DB5C98E624AAE9F400FF262E /* TabbarStyle */,
+				DB5C98E724AAEA1000FF262E /* Extensions */,
 				DB7B5F3124A35CED00BDFB7A /* Gecco */,
 				DB8BD4CC24A08F0600446AFC /* Assets.xcassets */,
 				DB8BD4C924A08F0600446AFC /* Main.storyboard */,
-				DB8BD4CE24A08F0600446AFC /* LaunchScreen.storyboard */,
 				DB8BD4D124A08F0600446AFC /* Info.plist */,
+				DB8BD4CE24A08F0600446AFC /* LaunchScreen.storyboard */,
+				DB3EC8BB24A9EAF80045779C /* UserCoreData.xcdatamodeld */,
 			);
 			path = BodyRecord;
 			sourceTree = "<group>";
@@ -281,6 +317,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB7B5F2C24A33CD400BDFB7A /* IAPManager.swift in Sources */,
+				DB3EC8BF24A9ECDC0045779C /* CoreDataConnect.swift in Sources */,
+				DB3EC8BD24A9EAF80045779C /* UserCoreData.xcdatamodeld in Sources */,
 				DB8BD4E224A0927D00446AFC /* ExampleBasicContentView.swift in Sources */,
 				DB8BD4DA24A091A500446AFC /* MoreVC.swift in Sources */,
 				DB8BD4E624A09F7900446AFC /* FatVC.swift in Sources */,
@@ -301,10 +339,12 @@
 				DB3EC8BA24A9E5660045779C /* DataChartVC.swift in Sources */,
 				DB8BD4C824A08F0600446AFC /* MainVC.swift in Sources */,
 				DB8BD4C424A08F0600446AFC /* AppDelegate.swift in Sources */,
+				DB5C98EC24AAEE9600FF262E /* HistoricalRecordCell.swift in Sources */,
 				DB3EC8B824A9D50B0045779C /* MySlideMeunCell.swift in Sources */,
 				DB7B5F3924A35CEE00BDFB7A /* SpotlightViewController.swift in Sources */,
 				DB7B5F3024A356C700BDFB7A /* TestVC.swift in Sources */,
 				DB8BD4D824A0911500446AFC /* TabbarVC.swift in Sources */,
+				DB5C98EA24AAEA5B00FF262E /* HistoricalRecordVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +552,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB3EC8BB24A9EAF80045779C /* UserCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB3EC8BC24A9EAF80045779C /* UserCoreData.xcdatamodel */,
+			);
+			currentVersion = DB3EC8BC24A9EAF80045779C /* UserCoreData.xcdatamodel */;
+			path = UserCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DB8BD4B824A08F0600446AFC /* Project object */;
 }
