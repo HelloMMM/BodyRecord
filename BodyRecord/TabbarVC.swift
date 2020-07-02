@@ -140,7 +140,11 @@ class TabbarVC: ESTabBarController {
         present(setVC, animated: true, completion: nil)
         
         if UserDefaults.standard.object(forKey: "setData") != nil {
-            let setData = UserDefaults.standard.object(forKey: "setData") as! Dictionary<String, Any>
+            var setData = UserDefaults.standard.object(forKey: "setData") as! Dictionary<String, Any>
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd"
+            let date = formatter.string(from: Date())
+            setData["date"] = date
             setVC.setData = setData
         }
     }

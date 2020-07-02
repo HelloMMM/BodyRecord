@@ -26,11 +26,15 @@ class BodyWeightView: LineChartView {
         rightAxis.enabled = false
         noDataText = "沒有數據"
         animate(yAxisDuration: 2)
-        
+
         xAxis.labelPosition = .bottom
         xAxis.drawGridLinesEnabled = false
         xAxis.granularityEnabled = true
-        xAxis.granularity = 10
+        if userData.count == 1 {
+            xAxis.granularity = 2
+        } else {
+            xAxis.granularity = 1
+        }
         xAxis.avoidFirstLastClippingEnabled = true
         xAxis.valueFormatter = self
         
@@ -64,12 +68,10 @@ class BodyWeightView: LineChartView {
             return date
         }.sorted()
         
-        
-        
         var values: Array<ChartDataEntry> = []
         for (index, value) in bodyWeights.enumerated() {
             
-            let chartDataEntry = ChartDataEntry(x: Double(index), y: Double(value), data: dates)
+            let chartDataEntry = ChartDataEntry(x: Double(index), y: Double(value), data: dates as AnyObject)
             values.append(chartDataEntry)
         }
         
@@ -79,7 +81,7 @@ class BodyWeightView: LineChartView {
         set1.setColor(UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1))
         set1.lineWidth = 1.5
         set1.drawCirclesEnabled = true
-        set1.drawValuesEnabled = false
+        set1.drawValuesEnabled = true
         set1.highlightEnabled = false
         set1.fillAlpha = 0.26
         set1.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)
@@ -102,6 +104,7 @@ extension BodyWeightView: ChartViewDelegate {
 extension BodyWeightView: IAxisValueFormatter {
 
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        
         return dates[Int(value)]
     }
 }

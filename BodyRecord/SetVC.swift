@@ -19,6 +19,7 @@ class SetVC: UIViewController {
     @IBOutlet weak var gander: UIButton!
     @IBOutlet weak var bodyHight: UITextField!
     @IBOutlet weak var bodyWidth: UITextField!
+    var date = ""
     let ganders = ["女♀", "男♂"]
     var selectGander = 0
     var setData: Dictionary<String, Any> = [:] {
@@ -32,6 +33,7 @@ class SetVC: UIViewController {
             } else {
                 gander.setTitle("男♀ ▼", for: .normal)
             }
+            date = setData["date"] as! String
         }
     }
     
@@ -41,6 +43,12 @@ class SetVC: UIViewController {
         yearOld.addTarget(self, action: #selector(textFieldChange(_:)), for: .editingChanged)
         bodyHight.addTarget(self, action: #selector(textFieldChange(_:)), for: .editingChanged)
         bodyWidth.addTarget(self, action: #selector(textFieldChange(_:)), for: .editingChanged)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let dateStr = formatter.string(from: Date())
+        
+        date = dateStr
     }
     
     @objc func textFieldChange(_ textField: UITextField) {
@@ -99,17 +107,12 @@ class SetVC: UIViewController {
         
         let gander = selectGander
         
-        let nowDate = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        let date = formatter.string(from: nowDate)
-        
         dismiss(animated: true) {
             self.delegate?.setData(["age": age,
                                     "gender": gander,
                                     "bodyHeight": hight,
                                     "bodyWeight": width,
-                                    "date": date])
+                                    "date": self.date])
         }
     }
     

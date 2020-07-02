@@ -94,11 +94,13 @@ extension HistoricalRecordVC: UITableViewDelegate, UITableViewDataSource, SetVCD
         let bodyHeight = "\(userData[indexPath.row].value(forKey: "bodyHeight")!)"
         let age = "\(userData[indexPath.row].value(forKey: "age")!)"
         let gender = userData[indexPath.row].value(forKey: "gender")! as! Int
+        let date = userData[indexPath.row].value(forKey: "date")! as! String
         
         let setData: Dictionary<String, Any> = ["bodyWeight": bodyWeight,
                                                 "bodyHeight": bodyHeight,
                                                 "age": age,
-                                                "gender": gender]
+                                                "gender": gender,
+                                                "date": date]
         setVC.setData = setData
     }
     
