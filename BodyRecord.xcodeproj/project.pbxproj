@@ -14,6 +14,9 @@
 		DB3EC8BF24A9ECDC0045779C /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3EC8BE24A9ECDC0045779C /* CoreDataConnect.swift */; };
 		DB5C98EA24AAEA5B00FF262E /* HistoricalRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C98E924AAEA5B00FF262E /* HistoricalRecordVC.swift */; };
 		DB5C98EC24AAEE9600FF262E /* HistoricalRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C98EB24AAEE9600FF262E /* HistoricalRecordCell.swift */; };
+		DB5C98EE24AB0C1400FF262E /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C98ED24AB0C1400FF262E /* ChartVC.swift */; };
+		DB5C98F124AB196200FF262E /* BodyWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C98F024AB196200FF262E /* BodyWeightView.swift */; };
+		DB5C98F524AC63F600FF262E /* FatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5C98F424AC63F600FF262E /* FatView.swift */; };
 		DB7B5F2A24A334F900BDFB7A /* MoreVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2924A334F900BDFB7A /* MoreVCCell.swift */; };
 		DB7B5F2C24A33CD400BDFB7A /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2B24A33CD300BDFB7A /* IAPManager.swift */; };
 		DB7B5F2E24A33CF300BDFB7A /* NVLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7B5F2D24A33CF300BDFB7A /* NVLoadingView.swift */; };
@@ -53,6 +56,9 @@
 		DB3EC8BE24A9ECDC0045779C /* CoreDataConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
 		DB5C98E924AAEA5B00FF262E /* HistoricalRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRecordVC.swift; sourceTree = "<group>"; };
 		DB5C98EB24AAEE9600FF262E /* HistoricalRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRecordCell.swift; sourceTree = "<group>"; };
+		DB5C98ED24AB0C1400FF262E /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
+		DB5C98F024AB196200FF262E /* BodyWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyWeightView.swift; sourceTree = "<group>"; };
+		DB5C98F424AC63F600FF262E /* FatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatView.swift; sourceTree = "<group>"; };
 		DB7B5F2924A334F900BDFB7A /* MoreVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVCCell.swift; sourceTree = "<group>"; };
 		DB7B5F2B24A33CD300BDFB7A /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		DB7B5F2D24A33CF300BDFB7A /* NVLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVLoadingView.swift; sourceTree = "<group>"; };
@@ -188,6 +194,9 @@
 				DB3EC8B924A9E5660045779C /* DataChartVC.swift */,
 				DB5C98E924AAEA5B00FF262E /* HistoricalRecordVC.swift */,
 				DB5C98EB24AAEE9600FF262E /* HistoricalRecordCell.swift */,
+				DB5C98ED24AB0C1400FF262E /* ChartVC.swift */,
+				DB5C98F024AB196200FF262E /* BodyWeightView.swift */,
+				DB5C98F424AC63F600FF262E /* FatView.swift */,
 				DB5C98E824AAEA3000FF262E /* CoreData */,
 				DB5C98E624AAE9F400FF262E /* TabbarStyle */,
 				DB5C98E724AAEA1000FF262E /* Extensions */,
@@ -325,10 +334,12 @@
 				DB7B5F2A24A334F900BDFB7A /* MoreVCCell.swift in Sources */,
 				DB8BD4EE24A1D54100446AFC /* CustomPickerView.swift in Sources */,
 				DB8BD4EA24A1BCBC00446AFC /* SetVC.swift in Sources */,
+				DB5C98EE24AB0C1400FF262E /* ChartVC.swift in Sources */,
 				DB8BD4E424A0927D00446AFC /* ExampleHighlightableContentView.swift in Sources */,
 				DB8BD4E824A09F8900446AFC /* CaloriesVC.swift in Sources */,
 				DB8BD4E124A0927D00446AFC /* ExampleBouncesContentView.swift in Sources */,
 				DB8BD4E024A0927D00446AFC /* ExampleBackgroundContentView.swift in Sources */,
+				DB5C98F124AB196200FF262E /* BodyWeightView.swift in Sources */,
 				DB3EC8B624A9D1800045779C /* MySlideMeunVC.swift in Sources */,
 				DB7B5F3724A35CEE00BDFB7A /* SpotlightView.swift in Sources */,
 				DB7B5F3824A35CEE00BDFB7A /* Spotlight.swift in Sources */,
@@ -344,6 +355,7 @@
 				DB7B5F3924A35CEE00BDFB7A /* SpotlightViewController.swift in Sources */,
 				DB7B5F3024A356C700BDFB7A /* TestVC.swift in Sources */,
 				DB8BD4D824A0911500446AFC /* TabbarVC.swift in Sources */,
+				DB5C98F524AC63F600FF262E /* FatView.swift in Sources */,
 				DB5C98EA24AAEA5B00FF262E /* HistoricalRecordVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,7 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 38AMPUQ98F;
 				INFOPLIST_FILE = BodyRecord/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -514,7 +526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 38AMPUQ98F;
 				INFOPLIST_FILE = BodyRecord/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

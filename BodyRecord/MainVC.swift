@@ -85,12 +85,9 @@ class MainVC: UIViewController {
         textAry = [lightText, normalText, exceedText, mildoText, mediumText, severeText]
 
         statement.text = "以上資料僅供參考,\n引用資料來源: 維基百科."
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         bodyHeight.layer.addBorder(edge: .right, color: .gray, thickness: 1)
         bodyHeight.layer.addBorder(edge: .left, color: .gray, thickness: 1)
         gender.layer.addBorder(edge: .left, color: .gray, thickness: 1)

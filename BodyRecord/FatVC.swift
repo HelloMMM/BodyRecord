@@ -91,7 +91,6 @@ class FatVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         bodyHeight.layer.addBorder(edge: .right, color: .gray, thickness: 1)
         bodyHeight.layer.addBorder(edge: .left, color: .gray, thickness: 1)
         gender.layer.addBorder(edge: .left, color: .gray, thickness: 1)
@@ -104,7 +103,7 @@ class FatVC: UIViewController {
         let bmi = iBodyWeight / dHight
         
         let ibodyFat = (1.2 * bmi) + (0.23 * Double(iAge) - 5.4) - (10.8 * Double(iGender))
-        
+
         bodyFat.text = String(format: "%.1f %@", ibodyFat,"%")
         
         if iGender == 0 {

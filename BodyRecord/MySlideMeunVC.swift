@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MySlideMeunDelegate {
-    func itemClick()
+    func itemClick(_ menuType: MenuType)
 }
 
 class MySlideMeunVC: UIViewController {
@@ -40,7 +40,7 @@ extension MySlideMeunVC: UITableViewDataSource, UITableViewDelegate {
         case 0:
             return 2
         case 1:
-            return 2
+            return 1
         default:
             return 0
         }
@@ -85,8 +85,13 @@ extension MySlideMeunVC: UITableViewDataSource, UITableViewDelegate {
                 cell.title.text = "歷史體重"
                 cell.myImageView.image = UIImage(named: "WeightScale")
             } else if indexPath.row == 1 {
-                cell.title.text = "圖表"
+                cell.title.text = "數據圖表"
                 cell.myImageView.image = UIImage(named: "chart")
+            }
+        } else if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                cell.title.text = "客服與意見回饋"
+                cell.myImageView.image = UIImage(named: "question")
             }
         }
         
@@ -97,7 +102,17 @@ extension MySlideMeunVC: UITableViewDataSource, UITableViewDelegate {
         
         dismiss(animated: true) {
             
-            self.delegate?.itemClick()
+            if indexPath.section == 0 {
+                if indexPath.row == 0 {
+                    self.delegate?.itemClick(.historical)
+                } else if indexPath.row == 1 {
+                    self.delegate?.itemClick(.chart)
+                }
+            } else if indexPath.section == 1 {
+                if indexPath.row == 0 {
+                    self.delegate?.itemClick(.question)
+                }
+            }
         }
     }
 }

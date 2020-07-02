@@ -42,9 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userData = results
         }
         
-//        let deleteResult = coreDataConnect.delete(coreDataName, predicate: "date = '2020/06/30'")
-        
-        
         return true
     }
     

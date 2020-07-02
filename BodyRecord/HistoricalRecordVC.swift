@@ -7,20 +7,54 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class HistoricalRecordVC: UIViewController {
 
+    var interstitial: GADInterstitial!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        interstitial = createAndLoadInterstitial()
         topView.backgroundColor = tabBarColor
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        
+        #if DEBUG
+            interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        #else
+            interstitial = GADInterstitial(adUnitID: "ca-app-pub-1223027370530841/9186788056")
+        #endif
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        
+        return interstitial
     }
     
     @IBAction func cancelClick(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension HistoricalRecordVC: GADInterstitialDelegate {
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        if !isRemoveAD {
+            if interstitial.isReady {
+                interstitial.present(fromRootViewController: self)
+            } else {
+                interstitial = createAndLoadInterstitial()
+            }
+        }
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+
+//        interstitial = createAndLoadInterstitial()
     }
 }
 

@@ -14,9 +14,14 @@ import Hero
 var tabbarVC: ESTabBarController!
 var tabBarColor: UIColor!
 
-
 protocol TabbarVCDelegate {
     func showMenu()
+}
+
+enum MenuType {
+    case historical
+    case chart
+    case question
 }
 
 class TabbarVC: ESTabBarController {
@@ -173,11 +178,22 @@ extension TabbarVC: TabbarVCDelegate, MySlideMeunDelegate {
         present(mySlideMeunVC, animated: true, completion: nil)
     }
     
-    func itemClick() {
+    func itemClick(_ menuType: MenuType) {
         
-        let historicalRecordVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoricalRecordVC") as! HistoricalRecordVC
+        var vc: UIViewController?
         
-        present(historicalRecordVC, animated: false, completion: nil)
+        if menuType == .historical {
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoricalRecordVC") as! HistoricalRecordVC
+            present(vc!, animated: false, completion: nil)
+        } else if menuType == .chart {
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChartVC") as! ChartVC
+            present(vc!, animated: false, completion: nil)
+        } else if menuType == .question {
+            
+            let urlString =  "itms-apps:itunes.apple.com/us/app/apple-store/id1520163103?mt=8&action=write-review"
+            let url = URL(string: urlString)!
+            UIApplication.shared.open(url, completionHandler: nil)
+        }
     }
 }
 
