@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
   - ESTabBarController-swift (2.8.0)
   - Google-Mobile-Ads-SDK (7.58.0):
     - GoogleAppMeasurement (~> 6.0)
@@ -35,17 +38,21 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
   - pop (1.0.12)
+  - TwicketSegmentedControl (0.1.2)
 
 DEPENDENCIES:
+  - Charts
   - ESTabBarController-swift
   - Google-Mobile-Ads-SDK
   - Hero
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView
   - pop (~> 1.0)
+  - TwicketSegmentedControl
 
 SPEC REPOS:
   trunk:
+    - Charts
     - ESTabBarController-swift
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
@@ -55,8 +62,10 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - pop
+    - TwicketSegmentedControl
 
 SPEC CHECKSUMS:
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   ESTabBarController-swift: 05593a6ad64700b03c0eb60ff625916370aa4136
   Google-Mobile-Ads-SDK: 7052557293c75c676db55feb707ace9b790f32c1
   GoogleAppMeasurement: e49be3954045b17d046f271b9cc1ec052bad9702
@@ -66,7 +75,8 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
 
-PODFILE CHECKSUM: 72ccdc718b093a7f55e2ee800b2e1f486f3200aa
+PODFILE CHECKSUM: 46e8359a5eb5d4000e35d5ea0c5f1716c4d92a7f
 
 COCOAPODS: 1.8.3

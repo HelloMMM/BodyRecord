@@ -13,5 +13,7 @@ pod 'Google-Mobile-Ads-SDK'
 pod 'ESTabBarController-swift'
 pod 'pop', '~> 1.0'
 pod 'NVActivityIndicatorView'
+pod 'TwicketSegmentedControl'
+pod 'Charts'
 
 end

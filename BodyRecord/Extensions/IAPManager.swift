@@ -153,6 +153,7 @@ extension IAPManager: SKPaymentTransactionObserver {
     
     func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
         
-        print("queuequeuesdfds: \(queue)")
+        NVLoadingView.stopBlockLoadingView()
+        print("restoreCompletedTransactionsFailedWithError: \(queue)")
     }
 }

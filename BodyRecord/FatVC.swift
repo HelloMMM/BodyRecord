@@ -17,6 +17,8 @@ enum BodyType {
 
 class FatVC: UIViewController {
 
+    var dalegate: TabbarVCDelegate?
+    
     @IBOutlet weak var lowValue: UILabel!
     @IBOutlet weak var standardValue: UILabel!
     @IBOutlet weak var averageValue: UILabel!
@@ -41,9 +43,9 @@ class FatVC: UIViewController {
     var setData: Dictionary<String, Any> = [:] {
         didSet {
             iAge = setData["age"] as! Int
-            iGender = setData["gander"] as! Int
-            iBodyHeight = setData["bodyHight"] as! Double
-            iBodyWeight = setData["bodyWidth"] as! Double
+            iGender = setData["gender"] as! Int
+            iBodyHeight = setData["bodyHeight"] as! Double
+            iBodyWeight = setData["bodyWeight"] as! Double
             upDate()
         }
     }
@@ -89,7 +91,6 @@ class FatVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         bodyHeight.layer.addBorder(edge: .right, color: .gray, thickness: 1)
         bodyHeight.layer.addBorder(edge: .left, color: .gray, thickness: 1)
         gender.layer.addBorder(edge: .left, color: .gray, thickness: 1)
@@ -102,7 +103,7 @@ class FatVC: UIViewController {
         let bmi = iBodyWeight / dHight
         
         let ibodyFat = (1.2 * bmi) + (0.23 * Double(iAge) - 5.4) - (10.8 * Double(iGender))
-        
+
         bodyFat.text = String(format: "%.1f %@", ibodyFat,"%")
         
         if iGender == 0 {
@@ -237,6 +238,11 @@ class FatVC: UIViewController {
                 objc.textColor = UIColor(red: 40.0/255.0, green: 42.0/255.0, blue: 48.0/255.0, alpha: 0.79)
             }
         }
+    }
+    
+    @IBAction func menuClick(_ sender: Any) {
+        
+        dalegate?.showMenu()
     }
 }
 

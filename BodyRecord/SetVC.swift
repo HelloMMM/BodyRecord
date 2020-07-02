@@ -21,23 +21,22 @@ class SetVC: UIViewController {
     @IBOutlet weak var bodyWidth: UITextField!
     let ganders = ["女♀", "男♂"]
     var selectGander = 0
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        if UserDefaults.standard.object(forKey: "setData") != nil {
-            
-            let setData = UserDefaults.standard.object(forKey: "setData") as! Dictionary<String, Any>
+    var setData: Dictionary<String, Any> = [:] {
+        didSet {
             yearOld.text = "\(setData["age"] ?? 0)"
-            bodyHight.text = "\(setData["bodyHight"] ?? 0)"
-            bodyWidth.text = "\(setData["bodyWidth"] ?? 0)"
-            selectGander = setData["gander"] as! Int
+            bodyHight.text = "\(setData["bodyHeight"] ?? 0)"
+            bodyWidth.text = "\(setData["bodyWeight"] ?? 0)"
+            selectGander = setData["gender"] as! Int
             if selectGander == 0 {
                 gander.setTitle("女♀ ▼", for: .normal)
             } else {
                 gander.setTitle("男♀ ▼", for: .normal)
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         yearOld.addTarget(self, action: #selector(textFieldChange(_:)), for: .editingChanged)
         bodyHight.addTarget(self, action: #selector(textFieldChange(_:)), for: .editingChanged)
@@ -100,12 +99,17 @@ class SetVC: UIViewController {
         
         let gander = selectGander
         
+        let nowDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let date = formatter.string(from: nowDate)
         
         dismiss(animated: true) {
             self.delegate?.setData(["age": age,
-                               "gander": gander,
-                               "bodyHight": hight,
-                               "bodyWidth": width])
+                                    "gender": gander,
+                                    "bodyHeight": hight,
+                                    "bodyWeight": width,
+                                    "date": date])
         }
     }
     

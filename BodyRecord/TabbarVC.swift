@@ -12,6 +12,17 @@ import GoogleMobileAds
 import Hero
 
 var tabbarVC: ESTabBarController!
+var tabBarColor: UIColor!
+
+protocol TabbarVCDelegate {
+    func showMenu()
+}
+
+enum MenuType {
+    case historical
+    case chart
+    case question
+}
 
 class TabbarVC: ESTabBarController {
 
@@ -33,7 +44,7 @@ class TabbarVC: ESTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         interstitial = createAndLoadInterstitial()
         if !isRemoveAD {
             addBannerViewToView()
@@ -42,8 +53,14 @@ class TabbarVC: ESTabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(removeAD), name: NSNotification.Name("RemoveAD") , object: nil)
         
         let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainVC") as! MainVC
+        main.dalegate = self
+        
         let fat = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FatVC") as! FatVC
+        fat.dalegate = self
+        
         let calories = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CaloriesVC") as! CaloriesVC
+        calories.dalegate = self
+        
         let more = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MoreVC") as! MoreVC
         more.delegate = self
         
@@ -121,6 +138,11 @@ class TabbarVC: ESTabBarController {
         let setVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetVC") as! SetVC
         setVC.delegate = self
         present(setVC, animated: true, completion: nil)
+        
+        if UserDefaults.standard.object(forKey: "setData") != nil {
+            let setData = UserDefaults.standard.object(forKey: "setData") as! Dictionary<String, Any>
+            setVC.setData = setData
+        }
     }
     
     func addBannerViewToView() {
@@ -147,6 +169,34 @@ class TabbarVC: ESTabBarController {
     }
 }
 
+extension TabbarVC: TabbarVCDelegate, MySlideMeunDelegate {
+    
+    func showMenu() {
+        
+        let mySlideMeunVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MySlideMeunVC") as! MySlideMeunVC
+        mySlideMeunVC.delegate = self
+        present(mySlideMeunVC, animated: true, completion: nil)
+    }
+    
+    func itemClick(_ menuType: MenuType) {
+        
+        var vc: UIViewController?
+        
+        if menuType == .historical {
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HistoricalRecordVC") as! HistoricalRecordVC
+            present(vc!, animated: false, completion: nil)
+        } else if menuType == .chart {
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChartVC") as! ChartVC
+            present(vc!, animated: false, completion: nil)
+        } else if menuType == .question {
+            
+            let urlString =  "itms-apps:itunes.apple.com/us/app/apple-store/id1520163103?mt=8&action=write-review"
+            let url = URL(string: urlString)!
+            UIApplication.shared.open(url, completionHandler: nil)
+        }
+    }
+}
+
 extension TabbarVC: MoreVCDelegate {
  
     func changeStyle(_ style: Style) {
@@ -168,7 +218,6 @@ extension TabbarVC: MoreVCDelegate {
         basicContentView4.backdropColor = .clear
         basicContentView4.highlightBackdropColor = .clear
         
-        var tabBarColor: UIColor!
         var bgColor: UIColor!
         var basicColor: UIColor!
         if style == .blue {
@@ -233,6 +282,13 @@ extension TabbarVC: SetVCDelegate {
             } else {
                 interstitial = createAndLoadInterstitial()
             }
+        }
+        
+        let _ = coreDataConnect.insert(coreDataName, attributeInfo: data)
+        let selectResult = coreDataConnect.retrieve(coreDataName, predicate: nil, sort: [["date": false]], limit: nil)
+        
+        if let results = selectResult {
+            userData = results
         }
     }
 }
