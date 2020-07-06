@@ -43,13 +43,13 @@ class HistoricalRecordVC: UIViewController {
 extension HistoricalRecordVC: GADInterstitialDelegate {
     
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        if !isRemoveAD {
-            if interstitial.isReady {
-                interstitial.present(fromRootViewController: self)
-            } else {
-                interstitial = createAndLoadInterstitial()
-            }
-        }
+//        if !isRemoveAD {
+//            if interstitial.isReady {
+//                interstitial.present(fromRootViewController: self)
+//            } else {
+//                interstitial = createAndLoadInterstitial()
+//            }
+//        }
     }
     
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {

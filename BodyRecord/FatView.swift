@@ -30,7 +30,11 @@ class FatView: LineChartView {
         xAxis.labelPosition = .bottom
         xAxis.drawGridLinesEnabled = false
         xAxis.granularityEnabled = true
-        xAxis.granularity = 10
+        if userData.count == 1 {
+            xAxis.granularity = 2
+        } else {
+            xAxis.granularity = 1
+        }
         xAxis.avoidFirstLastClippingEnabled = true
         xAxis.valueFormatter = self
         
@@ -62,13 +66,13 @@ class FatView: LineChartView {
             let bmi = bodyWeight / dHight
             let bodyFat = (1.2 * bmi) + (0.23 * Double(age) - 5.4) - (10.8 * Double(gender))
             return bodyFat
-        }
+        }.reversed()
         
         dates = userData.map { (objc) -> String in
             
             let date = String((objc.value(forKey: "date")! as! String).suffix(5))
             return date
-        }.sorted()
+        }.reversed()
         
         
         

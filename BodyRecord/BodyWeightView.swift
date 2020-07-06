@@ -60,13 +60,13 @@ class BodyWeightView: LineChartView {
             
             let bodyWeight = objc.value(forKey: "bodyWeight")! as! Double
             return bodyWeight
-        }
+        }.reversed()
         
         dates = userData.map { (objc) -> String in
             
             let date = String((objc.value(forKey: "date")! as! String).suffix(5))
             return date
-        }.sorted()
+        }.reversed()
         
         var values: Array<ChartDataEntry> = []
         for (index, value) in bodyWeights.enumerated() {

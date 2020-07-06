@@ -45,7 +45,7 @@ class ChartVC: UIViewController {
             let bodyWeight = objc.value(forKey: "bodyWeight")! as! Double
             totalWeight += bodyWeight
             return bodyWeight
-        }
+        }.reversed()
         
         if bodyWeights.count != 0 {
             
@@ -67,7 +67,7 @@ class ChartVC: UIViewController {
             
             totalFat += bodyFat
             return bodyFat
-        }
+        }.reversed()
         
         if bodyFats.count != 0 {
             
@@ -105,13 +105,13 @@ class ChartVC: UIViewController {
 extension ChartVC: GADInterstitialDelegate {
 
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        if !isRemoveAD {
-            if interstitial.isReady {
-                interstitial.present(fromRootViewController: self)
-            } else {
-                interstitial = createAndLoadInterstitial()
-            }
-        }
+//        if !isRemoveAD {
+//            if interstitial.isReady {
+//                interstitial.present(fromRootViewController: self)
+//            } else {
+//                interstitial = createAndLoadInterstitial()
+//            }
+//        }
     }
 }
 
