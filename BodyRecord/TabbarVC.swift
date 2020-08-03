@@ -152,7 +152,7 @@ class TabbarVC: ESTabBarController {
     func addBannerViewToView() {
         
         bannerView = GADBannerView(adSize: kGADAdSizeFullBanner)
-
+        
         #if DEBUG
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         #else

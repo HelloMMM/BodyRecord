@@ -1105,7 +1105,6 @@
                                                 <constraint firstItem="Kdm-uD-sbM" firstAttribute="top" secondItem="vf5-Dt-D5D" secondAttribute="top" id="A3g-OX-lRc"/>
                                                 <constraint firstItem="PGV-X8-UzJ" firstAttribute="top" secondItem="vf5-Dt-D5D" secondAttribute="top" id="FXP-ya-3Qu"/>
                                                 <constraint firstAttribute="bottom" secondItem="Uum-qM-MHJ" secondAttribute="bottom" constant="10" id="MrH-kg-N5r"/>
-                                                <constraint firstItem="Uum-qM-MHJ" firstAttribute="width" secondItem="Uum-qM-MHJ" secondAttribute="height" id="TLg-J6-KxG"/>
                                                 <constraint firstItem="PGV-X8-UzJ" firstAttribute="leading" secondItem="Uum-qM-MHJ" secondAttribute="trailing" constant="20" id="WWM-X4-oie"/>
                                                 <constraint firstAttribute="trailing" secondItem="Kdm-uD-sbM" secondAttribute="trailing" constant="10" id="ZDr-Cw-HVo"/>
                                                 <constraint firstAttribute="bottom" secondItem="PGV-X8-UzJ" secondAttribute="bottom" id="l11-y5-s8v"/>
